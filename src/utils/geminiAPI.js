@@ -15,7 +15,7 @@ export async function analyzeTrafficImage(imageData) {
       },
     };
 
-  const prompt = Analyze this traffic scene and provide detailed information in the following JSON format:
+    const prompt = `Analyze this traffic scene and provide detailed information in the following JSON format:
     {
       "trafficDensity": {
         "level": "low/medium/high",
@@ -35,7 +35,8 @@ export async function analyzeTrafficImage(imageData) {
         "suggestedSignal": "red/yellow/green",
         "waitTime": "estimated wait time in minutes"
       }
-    };
+    }`;
+
     const result = await model.generateContent([prompt, imageParts]);
     const response = await result.response;
     
